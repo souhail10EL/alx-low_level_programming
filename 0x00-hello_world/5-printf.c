@@ -1,9 +1,11 @@
 #include <stdio.h>
+
 /**
- * main - outcome is a piece of art
+ * main - this is function
  *
- * Return: 0 when its done
- */ 
+ * Return: 0 when done
+ */
+
 int main(void)
 {
 	printf("with proper grammar, but the outcome is a piece of art,\n");
