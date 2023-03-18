@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc -s -masm=inter $CFILE -o main.s
+gcc -S -masm=inter $CFILE
