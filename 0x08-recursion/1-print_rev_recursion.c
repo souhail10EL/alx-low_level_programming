@@ -1,5 +1,10 @@
 #include "main.h"
-#include <string.h>
+/**
+ * _print_rev_recursion - function prints strings recursevly
+ * @s: is  pointer parameter
+ * Return: s
+ */
+
 void _print_rev_recursion(char *s)
 {
 	if (*s == '\0')
