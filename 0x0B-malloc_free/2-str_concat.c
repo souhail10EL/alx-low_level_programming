@@ -44,5 +44,3 @@ char *str_concat(char *s1, char *s2)
 	qw[q] = '\0';
 	return (qw);
 }
-
-
