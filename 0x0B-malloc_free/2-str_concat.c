@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * _strlen - find len of str
+ * _strlen -> find len of str
  * @str: string
  * Return: z
  */
@@ -14,7 +14,7 @@ int _strlen(char *str)
 }
 
 /**
- * *str_concat - function concates two strings
+ * *str_concat -> function concates two strings
  * @s1: parameter
  * @s2: parameter
  * Return: str
