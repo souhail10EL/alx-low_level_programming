@@ -64,6 +64,3 @@ dog_t *new_dog(char *name, float age, char *owner)
 	new_dog->age = age;
 	return (new_dog);
 }
-
-int _strlen(const char *s);
-char *_strcpy(char *des, char *dep);
