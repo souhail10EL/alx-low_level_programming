@@ -7,13 +7,13 @@
  * @s: pointer string
  * Return: len
  */
-/*
- * int _strlen(const char *s)
- * int len = 0;
- * while (*s++)
- * len++;
- * return (len);
- */
+int _strlen(const char *s)
+{
+	int len = 0;
+	while (*s++)
+		len++;
+	return (len);
+}
 
 /**
  * _strcpy - function that copies
@@ -42,8 +42,8 @@ char *_strcpy(char *des, char *dep)
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new_dog;
-	int len_na = strlen(name);
-	int len_ow = strlen(owner);
+	int len_na = _strlen(name);
+	int len_ow = _strlen(owner);
 	int e;
 	int r;
 
@@ -57,14 +57,14 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (new_dog == NULL)
 		return (NULL);
 
-	new_dog->name = malloc(sizeof(char) * (strlen(name) + 1));
+	new_dog->name = malloc(sizeof(char) * (_strlen(name) + 1));
 	if ((*new_dog).name == NULL)
 	{
 		free(new_dog);
 		return (NULL);
 	}
 
-	new_dog->owner = malloc(sizeof(char) * (strlen(owner) + 1));
+	new_dog->owner = malloc(sizeof(char) * (_strlen(owner) + 1));
 	if ((*new_dog).owner == NULL)
 	{
 		free(new_dog->name);
