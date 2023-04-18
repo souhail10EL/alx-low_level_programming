@@ -1,4 +1,13 @@
 #include "dog.h"
+char *_strcopy(char *des, char *src)
+{
+	int q;
+
+	for (q = 0; src[q]; q++)
+		des[q] = src[q];
+	des[q] = '\0';
+	return (des);
+}
 /**
  * new_dog - add new dog
  * @name: name of the new dog
@@ -20,7 +29,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(new_dog);
 		return (NULL);
 	}
-	strcpy(new_dog->name, name);
+	_strcopy(new_dog->name, name);
 
 	new_dog->owner = (char *) malloc(strlen(owner) + 1);
 	if (new_dog->owner == NULL)
@@ -29,7 +38,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(new_dog->owner);
 		return (NULL);
 	}
-	strcpy(new_dog->owner, owner);
+	_strcopy(new_dog->owner, owner);
 	new_dog->age = age;
 	return (new_dog);
 }
+char *_strcopy(char *des, char *src);
