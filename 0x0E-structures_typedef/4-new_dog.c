@@ -1,4 +1,6 @@
 #include "dog.h"
+#include <stdlib.h>
+
 /**
  * _strlen - function knowing the len
  * @s: pointer string
