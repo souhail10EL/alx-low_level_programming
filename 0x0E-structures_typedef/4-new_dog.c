@@ -23,7 +23,7 @@ int _strlen(const char *s)
  */
 char *_strcpy(char *des, char *dep)
 {
-	int q = 0;
+	int q;
 
 	for (q = 0; dep[q]; q++)
 		des[q] = dep[q];
