@@ -1,19 +1,19 @@
 #include "dog.h"
 #include <stdlib.h>
+#include <string.h>
 
 /**
  * _strlen - function knowing the len
  * @s: pointer string
  * Return: len
  */
-int _strlen(const char *s)
-{
-	int len = 0;
-
-	while (*s++)
-		len++;
-	return (len);
-}
+/*
+ * int _strlen(const char *s)
+ * int len = 0;
+ * while (*s++)
+ * len++;
+ * return (len);
+ */
 
 /**
  * _strcpy - function that copies
@@ -42,6 +42,10 @@ char *_strcpy(char *des, char *dep)
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new_dog;
+	int len_na = strlen(name);
+	int len_ow = strlen(owner);
+	int e;
+	int r;
 
 	new_dog = (dog_t *) malloc(sizeof(dog_t));
 
@@ -53,23 +57,33 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (new_dog == NULL)
 		return (NULL);
 
-	new_dog->name = malloc(sizeof(char) * (_strlen(name) + 1));
+	new_dog->name = malloc(sizeof(char) * (strlen(name) + 1));
 	if ((*new_dog).name == NULL)
 	{
 		free(new_dog);
 		return (NULL);
 	}
 
-	new_dog->owner = malloc(sizeof(char) * (_strlen(owner) + 1));
+	new_dog->owner = malloc(sizeof(char) * (strlen(owner) + 1));
 	if ((*new_dog).owner == NULL)
 	{
 		free(new_dog->name);
 		free(new_dog);
 		return (NULL);
 	}
-	new_dog->name = _strcpy(new_dog->name, name);
+
+	for (e = 0; e < len_na; e++)
+	{
+		new_dog->name[e] = name[e];
+	}
+	new_dog->name[e] = '\0';
+
+	for (r = 0; r < len_ow; r++)
+	{
+		new_dog->owner[r] = owner[r];
+	}
+	new_dog->owner[r] = '\0';
 	new_dog->age = age;
-	new_dog->owner = _strcpy(new_dog->owner, owner);
 
 	return (new_dog);
 }
