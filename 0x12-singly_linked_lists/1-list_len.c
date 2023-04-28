@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "lists.h"
 /**
  * list_len - prints number of elements of list
  * @h: pointer to the header of node
