@@ -20,9 +20,9 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 	else
 	{
 		tem = *head;
-	while (tem->next != NULL)
-		tem = tem->next;
-	tem->next = adnode;
+		while (tem->next != NULL)
+			tem = tem->next;
+		tem->next = adnode;
 	}
 	return (adnode);
 }
