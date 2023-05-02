@@ -10,19 +10,21 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 	listint_t *adnode = malloc(sizeof(listint_t));
 	listint_t *tem = *head;
 
-	if (adnode == NULL)
+	if (adnode == NULL || head == NULL)
 		return (NULL);
+
 	adnode->n = n;
 	adnode->next = adnode;
 
 	if (*head == NULL)
-		*head = adnode;
-	else
 	{
-		tem = *head;
-		while (tem->next != NULL)
-			tem = tem->next;
-		tem->next = adnode;
+		*head = adnode;
+		return (adnode);
 	}
+	tem = *head;
+	while (tem->next != NULL)
+		tem = tem->next;
+	tem->next = adnode;
+
 	return (adnode);
 }
