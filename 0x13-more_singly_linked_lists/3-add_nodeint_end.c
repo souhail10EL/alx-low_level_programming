@@ -10,7 +10,7 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 	listint_t *adnode = malloc(sizeof(listint_t));
 	listint_t *tem = *head;
 
-	if (adnode == NULL || head == NULL)
+	if (adnode == NULL)
 		return (NULL);
 
 	adnode->n = n;
