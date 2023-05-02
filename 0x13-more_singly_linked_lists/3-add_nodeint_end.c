@@ -16,13 +16,13 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 	adnode->next = adnode;
 
 	if (*head == NULL)
-	{
 		*head = adnode;
-		return (adnode);
-	}
+	else
+	{
+		tem = *head;
 	while (tem->next != NULL)
 		tem = tem->next;
 	tem->next = adnode;
-
+	}
 	return (adnode);
 }
