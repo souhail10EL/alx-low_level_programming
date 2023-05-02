@@ -7,11 +7,12 @@
 size_t print_listint(const listint_t *h)
 {
 	size_t hseb = 0;
+	const listint_t *wanita = h;
 
-	while (h != NULL)
+	while (wanita != NULL)
 	{
-		printf("%d\n", h->n);
-		h = h->next;
+		printf("%d\n", wanita->n);
+		wanita = wanita->next;
 		hseb++;
 	}
 	return (hseb);
