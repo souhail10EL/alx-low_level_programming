@@ -16,5 +16,5 @@ listint_t *add_nodeint(listint_t **head, const int n)
 	adnode->next = *head;
 	*head = adnode;
 
-	return (adnose);
+	return (adnode);
 }
