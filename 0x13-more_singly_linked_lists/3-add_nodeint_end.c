@@ -14,7 +14,7 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 		return (NULL);
 
 	adnode->n = n;
-	adnode->next = adnode;
+	adnode->next = NULL;
 
 	if (*head == NULL)
 	{
