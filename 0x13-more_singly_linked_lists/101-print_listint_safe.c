@@ -1,41 +1,55 @@
 #include "lists.h"
 /**
+ * _q - reallocate memory
+ * @list: double pointer
+ * @size: of the list
+ * @new: new node
+ * Return: pointer to the list
+ */
+const listint_t **_q(const listint_t **list, size_t size, const listint_t *new)
+{
+	const listint_t **nlist;
+	size_t w;
+
+	nlist = malloc(size * sizeof(listint_t *));
+	if (nlist == NULL)
+	{
+		free(nlist);
+		exit(98);
+	}
+	for (w = 0; w < size - 1; w++)
+		nlist[w] = list[w];
+	nlist[w] = new;
+	free(list);
+	return (nlist);
+}
+/**
  * print_listint_safe - prints linstint_t linked list
  * @head: pointer to the head of nodes
  * Return: number of nodes
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	const listint_t *rakh;
-	const listint_t *te;
+	const listint_t **list = NULL;
 	size_t hseb = 0;
+	size_t w;
 
-	if (head == NULL)
-		return (0);
-
-	rakh = head;
-	while (rakh != NULL)
+	while (head != NULL)
 	{
-		printf("[%p] %d\n", (void *) rakh, rakh->n);
-		hseb++;
-		if (rakh > rakh->next)
-			rakh = rakh->next;
-		else
+		for (w = 0; w < hseb; w++)
 		{
-			printf("-> [%p] %d\n", (void *) rakh->next, rakh->next->n);
-			break;
+			if (head == list[w])
+			{
+				printf("[%p] %d\n", (void *)head, head->n);
+				free(list);
+				return (hseb);
+			}
 		}
-	}
-	if (rakh == NULL)
-		return (hseb);
-	te = head;
-	while (te != rakh)
-	{
-		printf("[%p] %d\n", (void *)te, te->n);
 		hseb++;
-		te = te->next;
+		list = _q(list, hseb, head);
+		printf("[%p] %d\n", (void *)head, head->n);
+		head = head->next;
 	}
-	printf("-> [%p] %d\n", (void *) te->next, te->next->n);
-
+	free(list);
 	return (hseb);
 }
