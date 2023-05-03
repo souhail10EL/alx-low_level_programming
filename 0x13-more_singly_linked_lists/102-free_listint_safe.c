@@ -1,30 +1,33 @@
 #include "lists.h"
 /**
  * free_listint_safe - freeing listint_t
- * @head: double pointer to the head of node
+ * @h: double pointer to the head of node
  * Return: size of the list
  */
 size_t free_listint_safe(listint_t **h)
 {
-	listint_t *tmp;
+	listint_t *tmp, *rakh;
 	size_t s = 0;
 
-	while (*h != NULL)
+	if (h == NULL)
+		return (0);
+
+	rakh = *h;
+	while (rakh != NULL)
 	{
-		if (*h <= (*h)->next)
+		s++;
+		if (rakh < rakh->next)
 		{
-			free(*h);
+			tmp = rakh;
+			rakh = rakh->next;
+			free(tmp);
+		}
+		else
+		{
+			free(rakh);
 			*h = NULL;
-			s++;
 			break;
 		}
-
-		tmp = (*h)->next;
-		(*h)->next = NULL;
-		free(*h);
-		*h = tmp;
-		s++;
 	}
-	*h = NULL;
 	return (s);
 }
