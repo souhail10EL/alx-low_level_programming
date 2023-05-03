@@ -6,29 +6,22 @@
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	const listint_t *rakh, *qber, *te;
+	const listint_t *rakh = head;
+	const listint_t *te = NULL;
 	size_t hseb = 0;
-
-	if (head == NULL)
-		exit(98);
-
-	rakh = head;
-	qber = NULL;
 
 	while (rakh != NULL)
 	{
-		pritnf("[%p] %d\n", (void *) rakh, rakh->n);
-		hseb++;
+		printf("[%p] %d\n", (void *) rakh, rakh->n);
+
 		te = rakh;
 		rakh = rakh->next;
 
-		if (te < rakh && te > qber)
+		if (te <= rakh)
 		{
 			printf("-> [%p] %d\n", (void *) rakh, rakh->n);
-			hseb++;
-			break;
+			exit(98);
 		}
-		qber = te;
 	}
 	return (hseb);
 }
