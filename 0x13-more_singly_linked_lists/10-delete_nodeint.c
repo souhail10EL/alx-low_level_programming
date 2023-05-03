@@ -22,7 +22,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	return (1);
 	}
 
-	prev = NULL;
+	qber = NULL;
 	for (q = 0; q < index && rakhou != NULL; q++)
 	{
 	qber = rakhou;
