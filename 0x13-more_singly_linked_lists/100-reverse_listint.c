@@ -6,16 +6,15 @@
  */
 listint_t *reverse_listint(listint_t **head)
 {
-	listint_t *rakhou = *head;
+	listint_t *te;
 	listint_t *qber = NULL;
 
-	while (rakhou != NULL)
+	while (*head != NULL)
 	{
-		listint_t *nxt = rakhou->next;
-
-		rakhou->next = qber;
-		qber = rakhou;
-		rakhou = nxt;
+		te = (*head)->next;
+		(*head)->next = qber;
+		qber = *head;
+		*head = te;
 	}
 	*head = qber;
 	return (*head);
